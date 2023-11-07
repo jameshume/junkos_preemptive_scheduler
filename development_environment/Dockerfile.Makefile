@@ -27,7 +27,8 @@ $(TEMP_DIR)/base:
 		linux-headers-$(shell uname -r) \
 		linux-modules-$(shell uname -r) \
 		git \
-		usbutils
+		usbutils \
+		libtool
 	touch $(TEMP_DIR)/base
 
 -include $(TEMP_DIR)/base
@@ -41,7 +42,7 @@ clang:
 	apt-get -y upgrade
 	apt-get install -y --no-install-recommends gnupg2 \
                                                gnupg-agent
-    curl --fail --silent --show-error --location https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+	curl --fail --silent --show-error --location https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 	echo "deb http://apt.llvm.org/$(LLVM_BASE_TAG)/ llvm-toolchain-$(LLVM_BASE_TAG)-$(LLVM_VERSION) main" >> /etc/apt/sources.list.d/llvm.list
 	apt-get update --fix-missing
 	apt-get -y upgrade
