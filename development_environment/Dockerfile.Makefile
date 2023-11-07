@@ -28,7 +28,8 @@ $(TEMP_DIR)/base:
 		linux-modules-$(shell uname -r) \
 		git \
 		usbutils \
-		libtool
+		libtool \
+		pkg-config
 	touch $(TEMP_DIR)/base
 
 -include $(TEMP_DIR)/base
